@@ -2,8 +2,8 @@
   <div class="main">
     <div id="nav">
       <div class="bgnav"></div>
-      <router-link class="hometitle" to="/">SCHUHMACHEREI JAKOB</router-link>
-      <MenuTop />
+      <NuxtLink class="hometitle" to="/">SCHUHMACHEREI JAKOB</NuxtLink>
+      <TheNav />
     </div>
     <NuxtPage />
     <FooterB />
@@ -11,7 +11,7 @@
 </template>
 
 <style>
-  layout {
+.layout {
   position: absolute;
   top: 297px;
   left: 0;
@@ -36,18 +36,22 @@
   width: 100%;
   overflow: hidden;
 }
-
+a {
+  text-decoration: none;
+  color: #24282D;
+}
 .main {
   position: relative;
   width: 89%;
   left: 5.5%;
 }
 .content {
-  padding: 6.2% 2.5% 0 2.5%;
+  padding: 4% 2.5% 4% 2.5%;
   text-align: left;
   font-size: 1.55rem;
   line-height: 1.2;
 }
+
 h1 {
   font-size: 3.2rem;
   font-weight: 300;

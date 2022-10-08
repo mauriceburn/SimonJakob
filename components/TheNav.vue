@@ -4,20 +4,18 @@
     <div class="lineBottom"></div>
   </div>
   <div class="menu" @click="mbtn = false" :class="{ expand: mbtn }">
-    <router-link to="/schuhenachmass">SCHUHE NACH MASS</router-link>
-    <router-link to="/schuhreparatur">SCHUHREPARATUR</router-link>
-    <router-link to="/kontakt">KONTAKT</router-link>
+    <NuxtLink v-for="(site, index) in sites" :key="index" :to="site.linkName">
+        {{ site.title }}
+    </NuxtLink>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      mbtn: false,
-    };
-  },
-};
+<script setup>
+const mbtn = ref(false);
+
+const query = groq`*[_type == "seiten" && showInNav == true] {title, linkName, showInNav}`;
+const { data: sites, refresh } = useSanityQuery(query);
+
 </script>
 
 <style>
@@ -34,6 +32,7 @@ export default {
   position: relative;
   width: 2rem;
   height: 3rem;
+  cursor: pointer;
 }
 
 .lineTop {
@@ -69,7 +68,8 @@ export default {
     width: 100%;
     font-size: 1.5rem;
     gap: 2rem;
-    padding-top: calc(2rem + 11.5%);
+    padding-top: calc(2rem + 10%);
+    padding-bottom: 4%;
     position: absolute;
     background-color: white;
     z-index: -2;
@@ -95,12 +95,12 @@ export default {
   }
   .home {
     flex-direction: column;
-    gap: 3rem!important;
+    gap: 3rem !important;
   }
 
   .blocks-gallery-item figure {
-  width: 40vw!important;
-  height: 40vw!important;
+    width: 40vw !important;
+    height: 40vw !important;
   }
 }
 </style>

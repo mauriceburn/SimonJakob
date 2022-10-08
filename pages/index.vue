@@ -1,33 +1,40 @@
 <template>
-  <div class="home">
-    <SanityContent :blocks="site.beschreibung" />
-    <NuxtLink v-for="(link, index) in site.links" :key="index" :to="'/' + link.siteLink">
-      <SiteLinks
-        :bgImage="link.asset._ref"
-        :ovImage="link.overlay.asset._ref"
-      />
-    </NuxtLink>
+  <div>
+    <div v-if="site">
+      <div class="content">
+        <SanityContent :blocks="site.beschreibung" />
+      </div>
+      <div class="links">
+        <NuxtLink
+          v-for="(link, index) in site.links"
+          :key="index"
+          :to="'/' + link.siteLink"
+        >
+          <SiteLinks :linkData="link" />
+        </NuxtLink>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-const query = groq`*[_type == "seiten" && name == "startseite"][0]`;
-const { data: site, refresh } = useSanityQuery(query);
+import CenterBlock from "~/components/CenterBlock.vue";
+
+const query = groq`*[_id == "83df670e-43f2-414e-b386-555ebff8cfce"][0]`;
+const { data: site } = useSanityQuery(query);
+const serializers = {
+  importedComponent: CenterBlock,
+  styles: {
+    center: CenterBlock,
+  },
+};
 </script>
 
 <style>
-.home {
+.links {
   display: flex;
   gap: 7%;
   justify-content: space-between;
   padding: 0 2.5% 0 2.5%;
-}
-
-.right {
-  width: 40%;
-}
-
-.right img {
-  width: 100%;
 }
 </style>

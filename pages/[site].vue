@@ -18,27 +18,21 @@
         </NuxtLink>
       </div>
     </div>
+    <h1 v-else>Die Seite "{{ route.params.site }}" ist nicht vorhanden</h1>
   </div>
 </template>
 
 <script setup>
-import CenterBlock from "~/components/CenterBlock.vue";
+import CenterBlock from '~/components/CenterBlock.vue'
+const route = useRoute()
 
-const query = groq`*[_type == "seiten" && linkName == "schuhenachmass"][0]`;
+const query = groq`*[_type == "seiten" && linkName == "${route.params.site}"][0]`;
 const { data: site } = useSanityQuery(query);
-
+console.log(route.params.site)
 const serializers = {
-  importedComponent: CenterBlock,
+    importedComponent: CenterBlock,
   styles: {
     center: CenterBlock,
   },
 };
 </script>
-
-<style>
-.line {
-  border-style: solid none none none;
-  border-width: 1px;
-  width: 100%;
-}
-</style>
