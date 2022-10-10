@@ -9,18 +9,18 @@
       <div class="middleText">
         031 332 66 24 <br />info@schuhmacherei-jakob.ch
       </div>
-      <div class="rightText">Datenschutz <br />Impressum</div>
+      <div class="rightText">
+        <NuxtLink to="/datenschutz">Datenschutz <br/></NuxtLink>
+        <NuxtLink to="/impressum">Impressum</NuxtLink>
+      </div>
     </div>
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style>
-
 .footer {
-  position: relative;
   margin-top: 8%;
 }
 
@@ -30,10 +30,8 @@
   width: 100%;
 }
 
-
-
 .text {
-  padding: 3.6% 0 4% 0;  
+  padding: 3.6% 0 4% 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -57,5 +55,13 @@
   width: 33%;
 }
 
-
+@media screen and (max-width: 900px) {
+  .text {
+    display: block;
+  }
+  .text > div {
+    text-align: center !important;
+    width: 100%;
+  }
+}
 </style>

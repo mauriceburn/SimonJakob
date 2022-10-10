@@ -1,4 +1,9 @@
 <template>
+  <Head>
+    <Title>Schuhmacherei Simon Jakob</Title>
+    <Link rel="icon" type="image/x-icon" href="./assets/favicon.png"></Link>
+  </Head>
+
   <div class="main">
     <div id="nav">
       <div class="bgnav"></div>
@@ -21,24 +26,29 @@
 }
 
 :root {
-    font-size: 1vw;
-    font-size: clamp(12px, 1vw, 20px);
+  font-size: 1vw;
+  font-size: clamp(12px, 1vw, 20px);
 }
 
 #__nuxt {
   font-family: Avenir, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #24282D;
+  color: #24282d;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   overflow: hidden;
 }
+
+p {
+  min-height: 1.55rem;
+}
+
 a {
   text-decoration: none;
-  color: #24282D;
+  color: #24282d;
 }
 .main {
   position: relative;
@@ -60,11 +70,11 @@ h1 {
 }
 
 h2 {
-font-size: 2rem;
-letter-spacing: 0.02rem;
+  font-size: 2rem;
+  letter-spacing: 0.02rem;
   font-weight: 300;
   border-style: none none solid none;
-border-width: 1px;
+  border-width: 1px;
 }
 
 .title {
@@ -98,13 +108,12 @@ border-width: 1px;
 
 #nav a {
   text-decoration: none;
-  color: #24282D;
+  color: #24282d;
 }
 
-.hometitle{
-  border-style: none!important;
+.hometitle {
+  border-style: none !important;
 }
-
 
 #nav a.router-link-exact-active {
   border-style: none none solid none;

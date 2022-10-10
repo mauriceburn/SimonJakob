@@ -1,10 +1,16 @@
 <template>
   <div class="container">
-    <img v-if="linkData.background" class="background"
-      :src="$urlFor(linkData.background).auto('format').width(700).height(700).url()"
+    <img
+      v-if="linkData.background"
+      class="background"
+      :src="
+        $urlFor(linkData.background).auto('format').width(700).height(700).url()
+      "
       loading="lazy"
     />
-    <img v-if="linkData.overlay" class="overlay"
+    <img
+      v-if="linkData.overlay"
+      class="overlay"
       :src="$urlFor(linkData.overlay).auto('format').width(700).url()"
       loading="lazy"
     />
@@ -28,6 +34,8 @@ const props = defineProps({
   width: 100%;
   opacity: 0.75;
   transition: 0.3s ease;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .container:hover .background {
@@ -36,12 +44,14 @@ const props = defineProps({
 
 .overlay {
   width: 70%;
-  padding: 11% 15%;
+  padding: 50% 15% 50% 15%;
   opacity: 1;
   transition: 0.3s ease;
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .linkText {
@@ -63,7 +73,6 @@ const props = defineProps({
 .linkText:hover {
   color: white;
 }
-
 
 .right {
   width: 40%;
