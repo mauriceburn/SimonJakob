@@ -16,6 +16,8 @@
 </template>
 
 <style>
+
+
 .layout {
   position: absolute;
   top: 297px;
@@ -39,6 +41,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 1700px;
   overflow: hidden;
 }
 
@@ -118,5 +121,11 @@ h2 {
 #nav a.router-link-exact-active {
   border-style: none none solid none;
   border-width: 1px;
+}
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 2.7rem;
+  }
 }
 </style>

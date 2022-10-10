@@ -41,6 +41,9 @@ const props = defineProps({
 .container:hover .background {
   opacity: 1;
 }
+.container:active .background {
+  opacity: 1;
+}
 
 .overlay {
   width: 70%;
@@ -70,7 +73,16 @@ const props = defineProps({
   filter: invert(1);
 }
 
+.overlay:active {
+  filter: invert(1);
+}
+
+
 .linkText:hover {
+  color: white;
+}
+
+.linkText:active {
   color: white;
 }
 
