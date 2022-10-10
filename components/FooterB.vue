@@ -7,7 +7,7 @@
         Breitenrainplatz 42 <br />3014 Bern
       </div>
       <div class="middleText">
-        031 332 66 24 <br />info@schuhmacherei-jakob.ch
+        031 332 66 24 <br /><a href="mailto:mail@schuhmacherei-jakob.ch">mail@schuhmacherei-jakob.ch</a>
       </div>
       <div class="rightText">
         <NuxtLink to="/datenschutz">Datenschutz <br/></NuxtLink>

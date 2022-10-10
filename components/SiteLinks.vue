@@ -67,6 +67,7 @@ const props = defineProps({
   padding: calc(50% - 1.5rem) 0;
   text-align: center;
   font-size: 2rem;
+  letter-spacing: 0.2rem;
 }
 
 .overlay:hover {

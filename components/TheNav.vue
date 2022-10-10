@@ -27,6 +27,10 @@ const { data: sites, refresh } = useSanityQuery(query);
   margin-top: 0.25%;
 }
 
+.menu a {
+  padding: 0 0.5rem 0 0.5rem;
+}
+
 .mbtn {
   display: none;
   position: relative;
