@@ -38,12 +38,10 @@
 </template>
 
 <script setup>
-const bigger = ref(false);
 
 const resize = (e) => {
-  bigger.value = !bigger.value;
   var initHeight = 25.9;
-  if (bigger.value == true) {
+  if (e.target.parentNode.style.height == "25.9vw" || e.target.parentNode.style.height == "") {
     const myInterval = setInterval(() => {
       initHeight += 2;
       const images = [...e.target.parentNode.children];
@@ -53,12 +51,12 @@ const resize = (e) => {
       e.target.parentNode.style.height = initHeight + "vw";
       e.target.parentNode.scrollBy(2.5 * vwInPx * imageIndex, 0);
 
-      if (initHeight > 60) {
+      if (initHeight > 50) {
         clearInterval(myInterval);
       }
     }, 10);
   } else {
-    initHeight = 61.9;
+    initHeight = 51.9;
     const myInterval = setInterval(() => {
       initHeight -= 2;
       const images = [...e.target.parentNode.children];
@@ -128,8 +126,6 @@ const { data: modelle, refresh } = useSanityQuery(query);
 }
 
 @media screen and (max-width: 900px) {
-  .galerie {
-    height: 40vw;
-  }
+
 }
 </style>
