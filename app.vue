@@ -1,7 +1,7 @@
 <template>
   <Head>
     <Title>Schuhmacherei Simon Jakob</Title>
-    <Link rel="icon" type="image/x-icon" href="./assets/favicon.png"></Link>
+    <Link rel="icon" type="image/x-icon" href="/favicon.png"></Link>
   </Head>
 
   <div class="main">
