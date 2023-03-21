@@ -1,47 +1,49 @@
 <template>
   <div>
-      <div class="modelle" v-if="modelle">
-        <Head>
-          <Title>Schuhmodelle</Title>
-          <Meta
-            name="description"
-            content="Schuhe nach Mass. Die Modelle in der Übersicht"
-          />
-        </Head>
-        <div class="title">
-          <h1>DIE MODELLE</h1>
-        </div>
-        <div class="line"></div>
-        <div class="content">
-          <div v-for="(modell, index) in modelle" :key="index">
-            <div class="shoeheader">
-              <h2 class="shoetitle">
-                {{ modell.name }}
-              </h2>
-              <div class="price">CHF {{ modell.preis }}</div>
-            </div>
-            <SanityContent :blocks="modell.beschreibung" />
-            <div class="galerie">
-              <img
-                @click="resize"
-                class="modellImage"
-                v-for="(image, index) in modell.galerie.images"
-                :key="index"
-                :src="$urlFor(image.asset).auto('format').width(700).url()"
-                loading="lazy"
-              />
-            </div>
+    <div class="modelle" v-if="modelle">
+      <Head>
+        <Title>Schuhmodelle</Title>
+        <Meta
+          name="description"
+          content="Schuhe nach Mass. Die Modelle in der Übersicht"
+        />
+      </Head>
+      <div class="title">
+        <h1>DIE MODELLE</h1>
+      </div>
+      <div class="line"></div>
+      <div class="content">
+        <div v-for="(modell, index) in modelle" :key="index">
+          <div class="shoeheader">
+            <h2 class="shoetitle">
+              {{ modell.name }}
+            </h2>
+            <div class="price">CHF {{ modell.preis }}</div>
+          </div>
+          <SanityContent :blocks="modell.beschreibung" />
+          <div class="galerie">
+            <img
+              @click="resize"
+              class="modellImage"
+              v-for="(image, index) in modell.galerie.images"
+              :key="index"
+              :src="$urlFor(image.asset).auto('format').width(700).url()"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-
 const resize = (e) => {
-  var initHeight = 25.9;
-  if (e.target.parentNode.style.height == "25.9vw" || e.target.parentNode.style.height == "") {
+  var initHeight = 34.3;
+  if (
+    e.target.parentNode.style.height == "34.3vw" ||
+    e.target.parentNode.style.height == ""
+  ) {
     const myInterval = setInterval(() => {
       initHeight += 2;
       const images = [...e.target.parentNode.children];
@@ -51,7 +53,7 @@ const resize = (e) => {
       e.target.parentNode.style.height = initHeight + "vw";
       e.target.parentNode.scrollBy(2.5 * vwInPx * imageIndex, 0);
 
-      if (initHeight > 50) {
+      if (initHeight > 51.9) {
         clearInterval(myInterval);
       }
     }, 10);
@@ -67,9 +69,9 @@ const resize = (e) => {
       e.target.parentNode.style.height = initHeight + "vw";
       e.target.parentNode.scrollBy(-2.5 * vwInPx * imageIndex, 0);
 
-      if (initHeight < 26.5) {
+      if (initHeight < 35.5) {
         clearInterval(myInterval);
-        e.target.parentNode.style.height = "25.9vw";
+        e.target.parentNode.style.height = "34.3vw";
       }
     }, 10);
   }
@@ -77,14 +79,13 @@ const resize = (e) => {
 
 const query = groq`*[_type == "modelle"] {name, beschreibung, galerie, preis}`;
 const { data: modelle, refresh } = useSanityQuery(query);
-
 </script>
 
 <style>
 .galerie {
   margin-top: 1%;
   width: 100%;
-  height: 25.9vw;
+  height: 34.3vw;
   display: inline-flex;
   gap: 3.5%;
   -ms-overflow-style: none; /* IE and Edge */
@@ -98,7 +99,7 @@ const { data: modelle, refresh } = useSanityQuery(query);
 
 .modellImage {
   height: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
@@ -126,6 +127,5 @@ const { data: modelle, refresh } = useSanityQuery(query);
 }
 
 @media screen and (max-width: 900px) {
-
 }
 </style>

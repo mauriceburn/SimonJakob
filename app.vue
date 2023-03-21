@@ -16,7 +16,14 @@
 </template>
 
 <style>
-
+@font-face {
+  font-family: Avenir;
+  src: url(./assets/Avenir-Roman.woff);
+}
+@font-face {
+  font-family: Avenir-Light;
+  src: url(./assets/Avenir-Light.woff);
+}
 
 .layout {
   position: absolute;
