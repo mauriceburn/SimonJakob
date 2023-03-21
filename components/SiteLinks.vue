@@ -6,13 +6,13 @@
       :src="
         $urlFor(linkData.background).auto('format').width(700).height(700).url()
       "
-      loading="lazy"
+      alt="Schuhmacherei Jakob"
     />
     <img
       v-if="linkData.overlay"
       class="overlay"
       :src="$urlFor(linkData.overlay).auto('format').width(700).url()"
-      loading="lazy"
+      alt="Schuhmacherei Jakob"
     />
     <div v-if="linkData.linkText" class="linkText">{{ linkData.linkText }}</div>
   </div>
@@ -77,7 +77,6 @@ const props = defineProps({
 .overlay:active {
   filter: invert(1);
 }
-
 
 .linkText:hover {
   color: white;

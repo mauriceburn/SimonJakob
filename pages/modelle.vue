@@ -27,7 +27,8 @@
               class="modellImage"
               v-for="(image, index) in modell.galerie.images"
               :key="index"
-              :src="$urlFor(image.asset).auto('format').width(700).url()"
+              :src="$urlFor(image.asset).auto('format').url()"
+              :alt="modell.name"
               loading="lazy"
             />
           </div>
@@ -39,9 +40,9 @@
 
 <script setup>
 const resize = (e) => {
-  var initHeight = 34.3;
+  var initHeight = 24.8;
   if (
-    e.target.parentNode.style.height == "34.3vw" ||
+    e.target.parentNode.style.height == "24.8vw" ||
     e.target.parentNode.style.height == ""
   ) {
     const myInterval = setInterval(() => {
@@ -69,9 +70,9 @@ const resize = (e) => {
       e.target.parentNode.style.height = initHeight + "vw";
       e.target.parentNode.scrollBy(-2.5 * vwInPx * imageIndex, 0);
 
-      if (initHeight < 35.5) {
+      if (initHeight < 25.7) {
         clearInterval(myInterval);
-        e.target.parentNode.style.height = "34.3vw";
+        e.target.parentNode.style.height = "24.8vw";
       }
     }, 10);
   }
@@ -85,7 +86,7 @@ const { data: modelle, refresh } = useSanityQuery(query);
 .galerie {
   margin-top: 1%;
   width: 100%;
-  height: 34.3vw;
+  height: 24.8vw;
   display: inline-flex;
   gap: 3.5%;
   -ms-overflow-style: none; /* IE and Edge */

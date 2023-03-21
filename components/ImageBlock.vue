@@ -2,6 +2,7 @@
   <img
     class="inlineImage"
     :src="$urlFor(asset._ref).auto('format').width(700).url()"
+    alt="Bild Schuhmacherei Jakob Bern"
     loading="lazy"
   />
 </template>

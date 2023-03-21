@@ -37,7 +37,6 @@ import CenterBlock from "~/components/CenterBlock.vue";
 const query = groq`*[_type == "seiten" && linkName == "schuhreparatur"][0]`;
 const { data: site, refresh } = useSanityQuery(query);
 
-
 const serializers = {
   importedComponent: CenterBlock,
   styles: {
