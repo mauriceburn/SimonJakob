@@ -15,7 +15,10 @@
         <div class="line"></div>
         <div class="content">
           {{ site.beschreibung }}
-          <SanityContent :blocks="site.beschreibung" />
+          <SanityContent
+            :blocks="site.beschreibung"
+            :serializers="serializers"
+          />
         </div>
         <div class="links">
           <NuxtLink
@@ -33,6 +36,7 @@
 
 <script setup>
 import CenterBlock from "~/components/CenterBlock.vue";
+import ImageBlock from "~~/components/ImageBlock.vue";
 
 const query = groq`*[_type == "seiten" && linkName == "schuhreparatur"][0]`;
 const { data: site, refresh } = useSanityQuery(query);
@@ -41,6 +45,9 @@ const serializers = {
   importedComponent: CenterBlock,
   styles: {
     center: CenterBlock,
+  },
+  types: {
+    image: ImageBlock,
   },
 };
 </script>

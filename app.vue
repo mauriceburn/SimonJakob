@@ -36,7 +36,7 @@
 
 :root {
   font-size: 1vw;
-  font-size: clamp(12px, 1vw, 20px);
+  font-size: clamp(12px, 1vw, 18px);
 }
 
 #__nuxt {
@@ -48,7 +48,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 1700px;
   overflow: hidden;
 }
 
@@ -61,9 +60,9 @@ a {
   color: #24282d;
 }
 .main {
-  position: relative;
+  max-width: 1700px;
   width: 89%;
-  left: 5.5%;
+  margin: auto;
 }
 .content {
   padding: 4% 2.5% 4% 2.5%;

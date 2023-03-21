@@ -18,9 +18,13 @@
             <h2 class="shoetitle">
               {{ modell.name }}
             </h2>
-            <div class="price">CHF {{ modell.preis }}</div>
+            <div class="price">ab CHF {{ modell.preis }}</div>
           </div>
-          <SanityContent :blocks="modell.beschreibung" />
+          <SanityContent
+            v-if="modell.beschreibung"
+            :blocks="modell.beschreibung"
+          />
+          <div class="spacer" v-else></div>
           <div class="galerie">
             <img
               @click="resize"
@@ -83,6 +87,9 @@ const { data: modelle, refresh } = useSanityQuery(query);
 </script>
 
 <style>
+.spacer {
+  height: 2.5vw;
+}
 .galerie {
   margin-top: 1%;
   width: 100%;

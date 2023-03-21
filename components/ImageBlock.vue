@@ -17,7 +17,7 @@ const props = defineProps({
 .inlineImage {
   width: 46.5%;
   display: inline;
-  margin: 0 1.7% 0 1.7%;
+  margin: 1.7% 1.7% 1.7% 1.7%;
   aspect-ratio: 1 / 1;
 }
 
