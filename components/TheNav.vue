@@ -5,7 +5,7 @@
   </div>
   <div class="menu" @click="mbtn = false" :class="{ expand: mbtn }">
     <NuxtLink v-for="(site, index) in sites" :key="index" :to="site.linkName">
-        {{ site.title }}
+      {{ site.title }}
     </NuxtLink>
   </div>
 </template>
@@ -22,7 +22,7 @@ const { data: sites, refresh } = useSanityQuery(query);
 .menu {
   display: flex;
   justify-content: space-between;
-  width: clamp(450px, 43%, 43%);
+  /* width: clamp(450px, 43%, 43%); */
   font-size: 1.35rem;
   margin-top: 0.25%;
 }
@@ -93,10 +93,11 @@ const { data: sites, refresh } = useSanityQuery(query);
     display: block;
   }
 
-  .text > div {
+  .text>div {
     text-align: left;
     margin-top: 1rem;
   }
+
   .home {
     flex-direction: column;
     gap: 3rem !important;
