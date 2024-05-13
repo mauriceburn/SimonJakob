@@ -1,23 +1,21 @@
 <template>
   <div>
     <div v-if="site">
+
       <Head>
-        <Meta
-          name="description"
-          content="Der Beruf des Schuhmachers geht auf meinen Grossvater mütterlicherseits zurück. Bis mein Vater 1968 aus Midyat/Türkei in die Schweiz kam, stellte er in der Türkei Massschuhe her. Damals wurden in der Türkei die Schuhe noch beim Schuhmacher bestellt."
-        />
+        <Meta name="description"
+          content="Der Beruf des Schuhmachers geht auf meinen Grossvater mütterlicherseits zurück. Bis mein Vater 1968 aus Midyat/Türkei in die Schweiz kam, stellte er in der Türkei Massschuhe her. Damals wurden in der Türkei die Schuhe noch beim Schuhmacher bestellt." />
       </Head>
 
+      <!-- <div v-if="anzeige">
+        <Modal :anzeige="anzeige" />
+      </div> -->
       <div v-if="site">
-        <div class="content" v-if="site.beschreibung">
+        <div class="content" v-if="site.title">
           <SanityContent :blocks="site.beschreibung" />
         </div>
         <div class="links">
-          <NuxtLink
-            v-for="(link, index) in site.links"
-            :key="index"
-            :to="'/' + link.siteLink"
-          >
+          <NuxtLink v-for="(link, index) in site.links" :key="index" :to="'/' + link.siteLink">
             <SiteLinks :linkData="link" />
           </NuxtLink>
         </div>
@@ -28,6 +26,9 @@
 
 <script setup>
 import CenterBlock from "~/components/CenterBlock.vue";
+
+const modal = groq`*[_type == "anzeige"][0]`;
+const { data: anzeige } = useSanityQuery(modal)
 
 const query = groq`*[_id == "83df670e-43f2-414e-b386-555ebff8cfce"][0]`;
 const { data: site, refresh } = useSanityQuery(query);
